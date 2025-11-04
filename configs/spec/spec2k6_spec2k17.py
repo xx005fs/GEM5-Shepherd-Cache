@@ -396,7 +396,7 @@ def get_process(options, target_isa="arm"):
     bzip2 = Process()
     bzip2_dir = '401.bzip2/'
     bzip2.executable =  exe_dir_06+bzip2_dir+\
-        'exe/bzip2' 
+        'exe/bzip2' + exe_suffix
     data= bench_dir_06+bzip2_dir+'data/ref/input/input.source'
     bzip2.cmd = [bzip2.executable] + [data, '1']
     bzip2.output = 'input.source.out'
@@ -405,7 +405,7 @@ def get_process(options, target_isa="arm"):
     gcc = Process()
     gcc_dir = '403.gcc/'
     gcc.executable =  exe_dir_06+gcc_dir+\
-        'exe/gcc' 
+        'exe/gcc' + exe_suffix
     data= bench_dir_06+gcc_dir+'/data/ref/input/166.i'
     output=output_dir+'166.s'
     gcc.cmd = [gcc.executable] + [data]+['-o',output] + ['-quiet'] \
@@ -417,9 +417,10 @@ def get_process(options, target_isa="arm"):
     #410.bwaves
     bwaves = Process()
     bwaves_dir= bench_dir_06+'410.bwaves'
-    bwaves.executable =  exe_dir_06+'410.bwaves/'+'exe/bwaves' 
+    bwaves.executable =  exe_dir_06+'410.bwaves/'+'exe/bwaves' + exe_suffix
     bwaves.cwd = bwaves_dir+'run/'
-    bwaves.cmd = [bwaves.executable]
+    data = bench_dir_06+bwaves_dir + '/data/ref/input/bwaves.in'
+    bwaves.cmd = [bwaves.executable] + [data]
 
 
     #429.mcf
@@ -449,7 +450,7 @@ def get_process(options, target_isa="arm"):
     cactusADM.executable =  exe_dir_06+cactusADM_dir+\
       'exe/cactusADM' + exe_suffix
     data= bench_dir_06+cactusADM_dir+'/data/ref/input/benchADM.par'
-    cactusADM.cmd = [cactusADM.executable] + ['benchADM.par']
+    cactusADM.cmd = [cactusADM.executable] + [data]
     cactusADM.cwd = bench_dir_06+cactusADM_dir + 'run'
     cactusADM.output = 'benchADM.out'
 

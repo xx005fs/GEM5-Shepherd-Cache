@@ -71,13 +71,11 @@ class L2Cache(Cache):
     mshrs = 20
     tgts_per_mshr = 12
     write_buffers = 8
-    # clusivity = 'mostly_excl'
-    # replacement_policy = WeightedLRURP()
-    # replacement_policy = LRURP()
-    # tags = BaseSetAssoc()
-    replacement_policy = SCRP()
-    tags = SCSetAssoc()
-    replacement_policy.num_sc_ways = 8
+    replacement_policy = LRURP()
+    tags = BaseSetAssoc()
+    # replacement_policy = SCRP()
+    # tags = SCSetAssoc()
+    # replacement_policy.num_sc_ways = 4
 
 class IOCache(Cache):
     assoc = 8

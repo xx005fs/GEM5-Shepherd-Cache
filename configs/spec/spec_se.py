@@ -129,6 +129,9 @@ if '--ruby' in sys.argv:
 parser.add_argument("-b", "--benchmark", default="",
                  help="The benchmark to be loaded.")
 
+# parser.add_argument("-rp", "--replacement-policy", default=LRURP(),
+#                  help="Replacement Policy to choose.")
+
 
 args = parser.parse_args()
 
